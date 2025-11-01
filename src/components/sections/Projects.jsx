@@ -1,11 +1,9 @@
-import { RevealOnScroll } from "../RevealOnScroll";
-
 export const Projects = () => {
-  const projects = [
+  const featuredProjects = [
     {
       title: "Zarian eCommerce (Full-Stack MERN)",
       description:
-        "A full-featured eCommerce platform built using the MERN stack with secure user authentication, admin management, and dynamic product handling. The backend implements hardened middleware with Helmet, sanitized input using sanitize-html, and custom CORS control to prevent XSS, CSRF, and NoSQL injection attacks. Integrated JWT authentication with HTTP cookies, device-based validation, and Cloudinary image uploads ensure robust and secure operations.",
+        "A full-featured eCommerce platform built using the MERN stack with secure user authentication, admin management, and dynamic product handling. Backend security includes Helmet, sanitized inputs, custom CORS, JWT, HTTP Cookies authentication, and Cloudinary for image uploads.",
       stack: [
         "React.js",
         "Redux Toolkit",
@@ -49,14 +47,38 @@ export const Projects = () => {
 
   const previousWork = [
     {
-      title: "Old Project 1",
+      title: "Hectic Blogs (React/Node.js)",
       description:
-        "Completed a web project exploring JavaScript and PHP. Code unavailable due to system reformat.",
+        "A blogging platform featuring authentication, CRUD posts, and image uploads. Code unavailable.",
+      stack: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB Atlas",
+        "JWT",
+        "bcrypt.js",
+        "dotenv",
+        "Multer",
+        "CORS",
+      ],
     },
     {
-      title: "Old Project 2",
+      title: "Zabong Hotel Booking Management System",
       description:
-        "Created a small Python desktop application for learning purposes. Code unavailable due to system reformat.",
+        "A hotel booking system with dynamic reservation tracking and admin dashboard. Code unavailable.",
+      stack: ["HTML", "CSS", "JavaScript", "PHP", "XAMPP MySQL"],
+    },
+    {
+      title: "Saiko Instrument eCommerce",
+      description:
+        "An online store for musical instruments featuring cart and checkout functions. Code unavailable.",
+      stack: ["HTML", "CSS", "JavaScript", "PHP", "XAMPP MySQL"],
+    },
+    {
+      title: "Library Inventory System",
+      description:
+        "A library management system for book cataloging and user tracking. Code unavailable.",
+      stack: ["HTML", "CSS", "JavaScript", "PHP", "XAMPP MySQL"],
     },
   ];
 
@@ -66,69 +88,50 @@ export const Projects = () => {
     </span>
   );
 
-  return (
-    <RevealOnScroll>
-      <section
-        id="projects"
-        className="min-h-screen flex flex-col items-center justify-center py-20"
-      >
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center bg-linear-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-20">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="group bg-[#0d0d0d] rounded-xl border border-white/10 hover:border-cyan-400/30 hover:shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all duration-300 p-6 flex flex-col"
-              >
-                <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-all">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 text-sm mt-3">
-                  {project.description}
-                </p>
-
-                {project.stack && (
-                  <div className="mt-4">
-                    <h4 className="text-sm font-semibold text-emerald-400 mb-2">
-                      Tech Stack Summary
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.stack.map((tech, i) => (
-                        <StackTag key={i} name={tech} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <h2 className="text-3xl font-bold mb-12 text-center bg-linear-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Coming Soon / Previous Work
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {previousWork.map((project, index) => (
-              <div
-                key={index}
-                className="group bg-[#0d0d0d] rounded-xl border border-white/10 hover:border-cyan-400/30 hover:shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all duration-300 p-6 flex flex-col"
-              >
-                <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-all">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 text-sm mt-3">
-                  {project.description}
-                </p>
-              </div>
+  const renderProjectCard = (project) => (
+    <div
+      key={project.title}
+      className="group bg-[#0d0d0d] rounded-xl border border-white/10 hover:border-cyan-400/30 hover:shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all duration-300 p-6 flex flex-col"
+    >
+      <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-all">
+        {project.title}
+      </h3>
+      <p className="text-gray-400 text-sm mt-3">{project.description}</p>
+      {project.stack && (
+        <div className="mt-4">
+          <h4 className="text-sm font-semibold text-emerald-400 mb-2">
+            Tech Stack Summary
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            {project.stack.map((tech, i) => (
+              <StackTag key={i} name={tech} />
             ))}
           </div>
         </div>
-      </section>
-    </RevealOnScroll>
+      )}
+    </div>
+  );
+
+  return (
+    <section
+      id="projects"
+      className="min-h-screen flex flex-col items-center justify-center py-20"
+    >
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl font-bold mb-12 text-center bg-linear-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          Featured Projects
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-20">
+          {featuredProjects.map((project) => renderProjectCard(project))}
+        </div>
+
+        <h2 className="text-3xl font-bold mb-12 text-center bg-linear-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          Previous Work
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {previousWork.map((project) => renderProjectCard(project))}
+        </div>
+      </div>
+    </section>
   );
 };
