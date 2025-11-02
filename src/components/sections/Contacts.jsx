@@ -31,7 +31,7 @@ export const Contacts = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center py-24 px-6"
+      className="min-h-screen flex items-center justify-center py-16 sm:py-20 px-4 sm:px-6 md:px-10"
     >
       <Toaster
         position="top-right"
@@ -47,16 +47,17 @@ export const Contacts = () => {
       />
 
       <RevealOnScroll>
-        <div className="max-w-5xl w-full px-10">
-          <h2 className="text-5xl font-bold mb-16 text-center bg-linear-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+        <div className="w-full max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 text-center bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
             Get in Touch
           </h2>
 
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 bg-[#0d0d0d] p-14 rounded-3xl border-2 border-cyan-400/20 shadow-[0_0_40px_rgba(0,255,255,0.15)]"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 bg-[#0d0d0d] p-6 sm:p-10 md:p-14 rounded-3xl border-2 border-cyan-400/20 shadow-[0_0_40px_rgba(0,255,255,0.15)]"
           >
+            {/* Left Side */}
             <div className="space-y-8">
               <div>
                 <label
@@ -71,7 +72,7 @@ export const Contacts = () => {
                   name="name"
                   required
                   placeholder="Enter your name"
-                  className="w-full px-6 py-3 text-lg bg-black/40 border border-cyan-400/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 text-gray-200 placeholder-gray-500 transition-all"
+                  className="w-full px-5 py-3 text-base sm:text-lg bg-black/40 border border-cyan-400/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 text-gray-200 placeholder-gray-500 transition-all"
                 />
               </div>
 
@@ -88,7 +89,7 @@ export const Contacts = () => {
                   name="email"
                   required
                   placeholder="example@email.com"
-                  className="w-full px-6 py-3 text-lg bg-black/40 border border-cyan-400/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 text-gray-200 placeholder-gray-500 transition-all"
+                  className="w-full px-5 py-3 text-base sm:text-lg bg-black/40 border border-cyan-400/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 text-gray-200 placeholder-gray-500 transition-all"
                 />
               </div>
             </div>
@@ -107,14 +108,14 @@ export const Contacts = () => {
                   rows="8"
                   required
                   placeholder="Write your message..."
-                  className="w-full px-6 py-3 text-lg bg-black/40 border border-cyan-400/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 text-gray-200 placeholder-gray-500 transition-all resize-none"
+                  className="w-full px-5 py-3 text-base sm:text-lg bg-black/40 border border-cyan-400/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 text-gray-200 placeholder-gray-500 transition-all resize-none"
                 ></textarea>
               </div>
 
               <div className="text-center">
                 <button
                   type="submit"
-                  className="relative inline-block px-14 py-4 font-semibold text-xl rounded-lg border border-cyan-400/50 text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-emerald-400 to-cyan-400 hover:-translate-y-0.5 hover:shadow-[0_0_20px_#06b6d4,0_0_40px_#34d399,0_0_60px_#06b6d4] transition-all duration-300"
+                  className="relative inline-block px-10 sm:px-12 py-3 sm:py-4 font-semibold text-lg sm:text-xl rounded-lg border border-cyan-400/50 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400 hover:-translate-y-0.5 hover:shadow-[0_0_20px_#06b6d4,0_0_40px_#34d399,0_0_60px_#06b6d4] transition-all duration-300"
                 >
                   Send Message
                 </button>
